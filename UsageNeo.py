@@ -6,6 +6,7 @@ import matplotlib.pyplot as plt
 import matplotlib.animation as animation
 from tkinter import ttk
 
+//Using style other than default Style
 style.use("dark_background")
 LARGE_FONT = ("Verdana", 12)
 time = -50
