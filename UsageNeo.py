@@ -19,34 +19,34 @@ class Data_Usage(tk.Tk):
     def __init__(self, *args, **kwargs):
         tk.Tk.__init__(self, *args, **kwargs)
         tk.Tk.wm_title(self, "Usage Tracker")
-        container = tk.Frame(self)
+        dialogContainer = tk.Frame(self)
 
-        container.pack(side = "top", fill = "both", expand = True)
+        dialogContainer.pack(side = "top", fill = "both", expand = True)
 
-        container.grid_rowconfigure(0, weight = 1)
-        container.grid_columnconfigure(0, weight = 1)
+        dialogContainer.grid_rowconfigure(0, weight = 1)
+        dialogContainer.grid_columnconfigure(0, weight = 1)
 
         self.frames = {}
 
-        frame = HomePage(container, self)
+        dialogWindow = HomePage(dialogContainer, self)
 
-        self.frames[HomePage] = frame
+        self.frames[HomePage] = dialogWindow
 
-        frame.grid(row = 0, column = 0, sticky = "nsew")
+        dialogWindow.grid(row = 0, column = 0, sticky = "nsew")
 
         self.show_frame(HomePage)
 
     def show_frame(self, cont):
 
-        frame = self.frames[cont]
-        frame.tkraise()
+        dialogWindow = self.frames[cont]
+        dialogWindow.tkraise()
 
 class HomePage(tk.Frame):
 
     def __init__(self, parent, controller):
         tk.Frame.__init__(self, parent)
-        label = tk.Label(self, text = "Usage Tracker", font = LARGE_FONT)
-        label.pack(pady = 10, padx = 10)
+        dialogLabel = tk.Label(self, text = "Usage Tracker", font = LARGE_FONT)
+        dialogLabel.pack(pady = 10, padx = 10)
 
         RAM_Button = ttk.Button(self, text = "RAM Usage", command = check_ram)
         RAM_Button.pack()
